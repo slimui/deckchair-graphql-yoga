@@ -2,13 +2,19 @@ const createServer = require('./createServer')
 const typeDefs = 'schema.graphql'
 const resolvers = require('./resolvers')
 const directiveResolvers = require('./directiveResolvers')
+const context = {}
 
 const port = process.env.PORT || 4000
 const debug = process.env.DEBUG || false
 const playground = process.env.PLAYGROUND || false
 const validationRules = []
 
-const server = createServer({ typeDefs, resolvers, directiveResolvers })
+const server = createServer({
+  typeDefs,
+  resolvers,
+  directiveResolvers,
+  context
+})
 
 const options = {
   port,
