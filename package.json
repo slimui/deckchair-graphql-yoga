@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "apollo-engine": "^0.9.1",
+    "firebase-admin": "^5.9.1",
     "graphql-disable-introspection": "^1.0.1",
     "graphql-validation-complexity": "^0.2.2",
     "graphql-yoga": "^1.4.3"
