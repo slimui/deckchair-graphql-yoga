@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    environment:
+      - PORT=80
+      - DEBUG=true
+      - PLAYGROUND=/playground
+    ports:
+      - "80:80"

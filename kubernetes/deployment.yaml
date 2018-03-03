@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: graphql-yoga-deployment
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: graphql-yoga
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        volumeMounts:
+        - name: graphql-schema
+          mountPath: /usr/src/app/schema
+      
+      volumes:
+      - name: graphql-schema
+        configMap:
+          name: graphql-schema
