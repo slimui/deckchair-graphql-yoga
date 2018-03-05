@@ -2,9 +2,9 @@ directive @isAuthenticated on FIELD | FIELD_DEFINITION
 directive @hasScope(scope: [String]) on FIELD | FIELD_DEFINITION
 
 type Query {
-  version: String! @isAuthenticated
+  version: String!
 }
 
 type Mutation {
-  verifyIdToken(token:String!): Boolean!
+  verifyIdToken(token:String!): Boolean! @hasScope(scope:["read:comments"])
 }

@@ -10,6 +10,7 @@ module.exports = auth => async (request, response, next) => {
       next()
     }
   } catch (error) {
+    console.error(error)
     request.user = undefined
     next()
   }
