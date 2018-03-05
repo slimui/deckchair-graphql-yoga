@@ -1,17 +1,17 @@
-module.exports = auth => async (request, response, next) => {
+module.exports = auth => async (req, res, next) => {
   try {
-    const { authorization } = request.headers
+    const { authorization } = req.headers
     if (authorization) {
       const token = authorization.split(' ')
       const decodedToken = await auth.verifyIdToken(token[1])
-      request.user = decodedToken
+      req.user = decodedToken
       next()
     } else {
       next()
     }
   } catch (error) {
     console.error(error)
-    request.user = undefined
+    req.user = undefined
     next()
   }
 }
