@@ -2,8 +2,9 @@
   "name": "@deckchairlabs/graphql-yoga",
   "version": "1.0.0",
   "private": true,
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "dev": "DEBUG=true PLAYGROUND=/playground nodemon --watch src",
     "start": "node src/index.js"
   },
   "dependencies": {
@@ -13,5 +14,7 @@
     "graphql-validation-complexity": "^0.2.2",
     "graphql-yoga": "^1.4.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^1.17.1"
+  }
 }
